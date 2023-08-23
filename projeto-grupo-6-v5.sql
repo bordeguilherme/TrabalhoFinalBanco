@@ -1,11 +1,12 @@
 DROP database IF EXISTS "projeto_grupo6";
 
-DROP table IF EXISTS usuario;
-DROP table IF EXISTS pedido;
-DROP table IF EXISTS categoria;
-DROP table IF EXISTS estoque;
-DROP table IF EXISTS produto;
 DROP table IF EXISTS pedido_produto;
+DROP table IF EXISTS estoque;
+DROP table IF EXISTS pedido;
+DROP table IF EXISTS produto;
+DROP table IF EXISTS categoria;
+DROP table IF EXISTS usuario;
+
 
 -- CREATES
 
@@ -105,10 +106,14 @@ values ('Raquete de tenis Wilson', 'Raquete Wilson, modele Elite Roland Garros, 
 ('Prancha de Surf', 'Prancha de Surf Invicta 5.11 de 27 litros', '2022-02-22', 6, 750, 3, 3);
 
 insert into pedido (ped_dt_data, fk_usu_cd_id, fk_prodt_cd_id) values (now(), 2, 1);
+insert into pedido (ped_dt_data, fk_usu_cd_id, fk_prodt_cd_id) values (now(), 2, 2);
+insert into pedido (ped_dt_data, fk_usu_cd_id, fk_prodt_cd_id) values (now(), 1, 8);
 
 insert into estoque (estq_int_total, fk_prodt_cd_id) values (10, 1);
 
 insert into pedido_produto (fk_ped_cd_id, fk_prodt_cd_id) values (1, 1);
+insert into pedido_produto (fk_ped_cd_id, fk_prodt_cd_id) values (2, 2);
+insert into pedido_produto (fk_ped_cd_id, fk_prodt_cd_id) values (3, 8);
 
 
 -- QUERIES
@@ -138,3 +143,30 @@ select COUNT(fk_cat_cd_id) as "quantidade de produtos da categoria Eletronicos"
 from produto
 group by fk_cat_cd_id
 having fk_cat_cd_id = 1;
+
+-- mostra a quantidade de produtos vendidos por vendedor e seus respectivos nomes de usuario
+
+select us.usu_tx_nome, COUNT(fk_usu_cd_int) as "quantidade de produto por vendedor"
+from produto
+inner join usuario us
+on us.usu_cd_id = fk_cat_cd_id
+group by us.usu_tx_nome;
+
+-- VIEW
+
+create view nota_fiscal
+as select pr.prodt_tx_nome, pr.prodt_nm_valor as "valor", usc.usu_tx_nome as "comprador",  usv.usu_tx_nome as "vendedor", pe.ped_dt_data as "data"
+from pedido pe
+inner join pedido_produto pp
+on pe.ped_cd_id = pp.fk_ped_cd_id
+inner join produto pr
+on pr.prodt_cd_id = pp.fk_prodt_cd_id
+inner join usuario usv
+on usv.usu_cd_id = pr.fk_usu_cd_int
+inner join  usuario usc
+on usc.usu_cd_id = pe.fk_usu_cd_id;
+
+-- exemplo de nota fiscal por comprador
+select * from nota_fiscal where comprador = 'Guilherme Borde';
+
+-- INDEX
