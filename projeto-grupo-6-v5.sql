@@ -108,7 +108,7 @@ insert into pedido (ped_dt_data, fk_usu_cd_id, fk_prodt_cd_id) values (now(), 2,
 
 insert into estoque (estq_int_total, fk_prodt_cd_id) values (10, 1);
 
-insert into pedido_produto (fk_ped_cd_id, fk_prodt_cd_id) values (2, 1);
+insert into pedido_produto (fk_ped_cd_id, fk_prodt_cd_id) values (1, 1);
 
 
 -- QUERIES
