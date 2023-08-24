@@ -31,8 +31,8 @@ Declarações das tabelas com as chaves primárias e estrageiras e outras coluna
 <br/>
 <br/>
 Autores:<br/>
-<a href="https://github.com/Estevao1323">Estevão Montes</a><br>
-<a href="https://github.com/RafaelVPL">Rafael Vinícius</a><br>
-<a href="https://github.com/felipedfe">Felipe Fernandes</a><br>
-<a href="https://github.com/bordeguilherme">Guilherme Borde</a><br>
-<a href="https://github.com/joselourencocm">José Lourenço</a><br>
+<a href="https://github.com/Estevao1323" target="_blank">Estevão Montes</a><br>
+<a href="https://github.com/RafaelVPL" target="_blank">Rafael Vinícius</a><br>
+<a href="https://github.com/felipedfe" target="_blank">Felipe Fernandes</a><br>
+<a href="https://github.com/bordeguilherme" target="_blank">Guilherme Borde</a><br>
+<a href="https://github.com/joselourencocm" target="_blank">José Lourenço</a><br>
