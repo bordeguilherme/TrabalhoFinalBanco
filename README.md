@@ -31,8 +31,8 @@ Declarações das tabelas com as chaves primárias e estrageiras e outras coluna
 <br/>
 <br/>
 Autores:<br/>
-Estevão Montes<br/>
-Guilherme Borde Almeida<br/>
-Felipe Fernandes<br/>
-José Lourenço<br/>
-Rafael Vinícius Lima<br/>
+<a href="https://github.com/Estevao1323">Estevão Montes</a><br>
+<a href="https://github.com/RafaelVPL">Rafael Vinícius</a><br>
+<a href="https://github.com/felipedfe">Felipe Fernandes</a><br>
+<a href="https://github.com/bordeguilherme">Guilherme Borde</a><br>
+<a href="https://github.com/joselourencocm">José Lourenço</a><br>
