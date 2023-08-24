@@ -144,6 +144,13 @@ insert into pedido_produto (fk_ped_cd_id, fk_prodt_cd_id) values (1, 1);
 insert into pedido_produto (fk_ped_cd_id, fk_prodt_cd_id) values (2, 2);
 insert into pedido_produto (fk_ped_cd_id, fk_prodt_cd_id) values (3, 8);
 
+-- INDEX
+select * from produto where prodt_tx_nome = 'Jaqueta jeans';
+create index idx_produto_nome ON produto (prodt_tx_nome);
+
+SELECT * FROM pedido_produto;
+create index idx_produtos on pedido_produto (fk_prodt_cd_id);
+
 
 -- QUERIES
 
