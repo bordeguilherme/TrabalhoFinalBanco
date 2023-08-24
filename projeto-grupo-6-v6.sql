@@ -22,6 +22,9 @@ create table usuario (
 	usu_dt_data_nasc date
 );
 
+alter table usuario add column comprador boolean;
+alter table usuario add column vendedor boolean;
+
 create table categoria (
 	cat_cd_id serial primary key,
 	cat_tx_nome varchar(20),
@@ -108,6 +111,17 @@ values ('Maria', 'Rua do Limao', '2499998765', 1727, 'maria@email.com', '1036360
        ('Estevao Montes', 'Rua Thouzet', '24988892764', 5462, 'estevao@email.com', '10275478901', '1991-02-04'),
        ('Jose Lourenco', 'Rua da Feira', '21988893456', 7809, 'zelo@email.com', '19888878653', '1972-01-12');
 
+--UPDATES
+      update usuario set comprador = true where usu_cd_id = 2;
+      update usuario set vendedor = true where usu_cd_id = 3;
+      update usuario set vendedor = false where vendedor is null;
+      update usuario set comprador = false where comprador is null;
+     
+--visualizações
+     select * from usuario u where u.comprador = true or u.vendedor = true;
+     select * from usuario u where u.comprador = true or u.vendedor is null;
+     
+     
 -- Inserir categorias
 insert into categoria (cat_tx_nome, cat_tx_descricao)
 values ('Eletronicos', 'Dispositivos eletronicos'),
